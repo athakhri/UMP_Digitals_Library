@@ -1,0 +1,939 @@
+{
+	"info": {
+		"_postman_id": "4231d82d-c32e-42bf-83a2-9e0c24275191",
+		"name": "UMP Digitals Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42986277"
+	},
+	"item": [
+		{
+			"name": "Pengguna",
+			"item": [
+				{
+					"name": "Get Pengguna",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/user/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pengguna by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/user/01jwfrwcxat9e93wfxfhcntdhv"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Pengguna",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tony Stark",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "TonyStarks@Industries.co.id",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123@password",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/api/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pengguna",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Peter Parker\",\r\n  \"email\": \"PeterParker@Amazing.com\",\r\n  \"password\": \"password123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/user/01jwfrwcxat9e93wfxfhcntdhv"
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Pengguna",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/user/01jwfrwcxat9e93wfxfhcntdhv"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "qj5FC3eOgT4sFITm8iqNNXAuFWoTHahN6958s314921c3bc2"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Penulis",
+			"item": [
+				{
+					"name": "Get Penulis",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{base_url}}/api/author/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Penulis by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/author/01jwfvwvmfh2vc7e27jc8bykcj"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Penulis",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Stand Lee",
+									"type": "text"
+								},
+								{
+									"key": "nationality",
+									"value": "American",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "1979-03-24",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/api/author"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Penulis",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Mackles Byse\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/author/01jwfvyszrq4vrpqwfx523ww50"
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Penulis",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/author/01jwfvyszrq4vrpqwfx523ww50"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "qj5FC3eOgT4sFITm8iqNNXAuFWoTHahN6958s314921c3bc2"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Buku",
+			"item": [
+				{
+					"name": "Get Buku",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{base_url}}/api/book/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Buku by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/book/01jwfwvkw0yt6gpdk3p32m7rrf"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Buku",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Avengers Secret Wars",
+									"type": "text"
+								},
+								{
+									"key": "isbn",
+									"value": "1294057594",
+									"type": "text"
+								},
+								{
+									"key": "publisher",
+									"value": "Marvel",
+									"type": "text"
+								},
+								{
+									"key": "year_published",
+									"value": "1987",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "90",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/api/book"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Buku",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Avengers Doom Dynasty\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/book/01jwfwvkw0yt6gpdk3p32m7rrf"
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Buku",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/book/01jwfwvkw0yt6gpdk3p32m7rrf"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "qj5FC3eOgT4sFITm8iqNNXAuFWoTHahN6958s314921c3bc2"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Peminjamaan",
+			"item": [
+				{
+					"name": "Get Peminjamaan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{base_url}}/api/loan/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Peminjamaan by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/loan/01jwfy2ee8f9ytah2m4famrnrq"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Peminjamaan",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "01JWFWTRA44J1T8Q8DB0XT0JBR",
+									"type": "text"
+								},
+								{
+									"key": "book_id",
+									"value": "01jwfxee66vtj12522n8j72wr4",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/api/loan"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Peminjamaan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": \"01jwfxf35awm10eqh7c0w0hwww\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/loan/01jwfxer0wzkfjjj197qce8awb"
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Peminjamaan",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/loan/01jwfxer0wzkfjjj197qce8awb"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "qj5FC3eOgT4sFITm8iqNNXAuFWoTHahN6958s314921c3bc2"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Pengarang dari Buku",
+			"item": [
+				{
+					"name": "Get Pengarang dari Buku",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "{{base_url}}/api/book-author/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pengarang dari Buku by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/book-author/01jwfy0zspqwzazc3gb7j7707k"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Pengarang dari Buku",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "book_id",
+									"value": "01jwfxee66vtj12522n8j72wr4",
+									"type": "text"
+								},
+								{
+									"key": "author_id",
+									"value": "01jwfy08k0yg31vqbx1r1kef7f",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{base_url}}/api/book-author"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pengarang dari Buku",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"author_id\": \"01jwfy55kqrjcm2gfjbfwadkzz\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/book-author/01jwfy0zspqwzazc3gb7j7707k"
+					},
+					"response": []
+				},
+				{
+					"name": "Hapus Pengarang dari Buku",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/book-author/01jwfy0zspqwzazc3gb7j7707k"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": {
+					"token": "qj5FC3eOgT4sFITm8iqNNXAuFWoTHahN6958s314921c3bc2"
+				}
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@ifump.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/api/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Admin",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{token}}"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": "{{base_url}}/api/logout"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "Qm45bIscYgoJqarmTpuDWZ0XIObJaUzuOYp3OPCB86e244ec",
+			"type": "string"
+		}
+	]
+}
