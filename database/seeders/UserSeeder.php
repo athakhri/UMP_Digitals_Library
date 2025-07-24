@@ -3,11 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
@@ -21,6 +20,12 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@ifump.net',
             'password' => Hash::make('password')
+        ]);
+        User::create([
+            'id' => Str::ulid(),
+            'name' => 'muhajir',
+            'email' => 'MuhajirKelana48@gmail.com',
+            'password' => Hash::make('multiTech')
         ]);
     }
 }

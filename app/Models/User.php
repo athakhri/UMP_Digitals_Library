@@ -7,9 +7,9 @@ namespace App\Models;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 class User extends Authenticatable
@@ -26,6 +26,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role', // tambahkan ini
     ];
 
     /**
@@ -34,7 +35,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $hidden = [
-        'password',
+        // 'password',
         'remember_token',
     ];
 
@@ -46,13 +47,16 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'name'=>'string',
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
+            // 'email_verified_at' => 'datetime',
             'membership_date' => 'date',
+            'password' => 'hashed',
         ];
     }
-
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value);
+    }
+ 
     protected static function booted(): void
     {
         static::creating(function ($user) {
@@ -60,7 +64,7 @@ class User extends Authenticatable
         });
     }
 
-    public function loan():HasMany{
-        return $this->hasMany(Loan::class,'user_id');
-    }  
+    public function loans():HasMany{
+        return $this->hasMany(Loans::class,'user_id');
+    }    
 }

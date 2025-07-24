@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
-
 class AuthController extends Controller
 {
     public function login(LoginRequest $request)
@@ -17,10 +16,10 @@ class AuthController extends Controller
         $credentials = $request->validated();
 
 
-        $user = User::whereRaw('BINARY email = ?', [$credentials['email']])->first();
+        $user = User::whereRaw('BINARY name = ?', [$credentials['name']])->first();
         if (! $user || ! Hash::check($credentials['password'], $user->password)) {
             throw ValidationException::withMessages([
-                'email' => 'Email atau Password salah.',
+                'name' => 'Name atau password salah.',
             ]);
         }
 

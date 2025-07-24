@@ -23,30 +23,33 @@ class UserController extends Controller
             $user = User::findOrFail($id);
             return response()->json($user, 200);
         } catch (ModelNotFoundException $e) {
-            return response()->json(['message' => 'User Account was not found'], 404);
+            return response()->json(['message' => 'User not found'], 404);
         }
     }
 
     // Menambahkan user baru
-    public function store(Request $request): JsonResponse
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:8',
-        ]);
+public function store(Request $request): JsonResponse
+{
+    $request->validate([
+        'name' => 'required|string|unique:users,name',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|string|min:8',
+        'role' => 'required|in:siswa,guru', // tambahkan ini
+    ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ]);
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'role' => $request->role,
+    ]);
 
-        return response()->json([
-            'message' => 'User Account has been be Created.',
-            'data' => $user
-        ], 201);
-    }
+    return response()->json([
+        'message' => 'Akun pengguna berhasil ditambahkan.',
+        'data' => $user
+    ], 201);
+}
+
 
     // Mengupdate data user
     public function update(Request $request, $id): JsonResponse
@@ -55,28 +58,29 @@ class UserController extends Controller
             $user = User::findOrFail($id);
 
             $request->validate([
-                'name' => 'sometimes|string|max:255',
                 'email' => 'sometimes|email|unique:users,email,' . $id,
+                'name' => 'sometimes|string|max:255|unique:users,name,' . $id,
                 'password' => 'sometimes|string|min:8',
+                'role' => 'sometimes|in:siswa,guru', // tambahkan ini juga
             ]);
 
-            // Hanya update field yang dikirim
-            $data = $request->only(['name', 'email', 'password']);
+            $data = $request->only(['name', 'email', 'password', 'name', 'role']);
             if (isset($data['password'])) {
                 $data['password'] = bcrypt($data['password']);
             }
+
             logger('Data yg dikirim', $data);
             $user->update($data);
             
 
             return response()->json([
                 'message' => $user->wasChanged()
-                    ? 'User Account has been Updated.'
-                    : 'Nothing Change on this User Account.',
+                    ? 'Akun pengguna berhasil diupdate.'
+                    : 'Tidak ada perubahan pada data pengguna.',
                 'data' => $user
             ], 200);
         } catch (ModelNotFoundException $e) {
-            return response()->json(['message' => 'User Account was not found'], 404);
+            return response()->json(['message' => 'User not found'], 404);
         }
     }
 
@@ -86,9 +90,38 @@ class UserController extends Controller
             $user = User::findOrFail($id);
             $user->delete();
 
-            return response()->json(['message' => 'User Account was been Deleted.']);
+            return response()->json(['message' => 'User berhasil dihapus.']);
         } catch (ModelNotFoundException $e) {
-            return response()->json(['message' => 'User Account was not found.'], 404);
+            return response()->json(['message' => 'User tidak ditemukan.'], 404);
         }
     }
+            public function count()
+    {
+        $count = \App\Models\User::count();
+
+        return response()->json([
+            'total' => $count
+        ]);
+    }
+    public function register(Request $request): JsonResponse
+{
+    $request->validate([
+        'name' => 'required|string|unique:users,name',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|string|min:8',
+    ]);
+
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password),
+        'role' => 'siswa', // role default, misalnya "siswa"
+    ]);
+
+    return response()->json([
+        'message' => 'Registrasi berhasil.',
+        'data' => $user
+    ], 201);
+}
+
 }
